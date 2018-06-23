@@ -25,7 +25,7 @@ class App extends Component {
         if (routes.length) {
             rs = routes.map((route, index) => {
                 return (
-                    <Route key={index} path={route.path} exact={route.exact} component={route.component} />
+                    <Route key={index} path={route.path} exact={route.exact} component={route.main} />
                 )
             })
         }

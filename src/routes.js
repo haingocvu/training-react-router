@@ -3,26 +3,32 @@ import Home from "./components/Home";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import NotFound from "./components/NotFound";
+import Products from "./components/Products";
 
 const routes = [
     {
         path: '/',
-        component: () => <Home />,
+        main: () => <Home />,
         exact: true
     },
     {
         path: '/about',
-        component: () => <About />,
+        main: () => <About />,
         exact: false
     },
     {
         path: '/contact',
-        component: () => <Contact />,
+        main: () => <Contact />,
+        exact: false
+    },
+    {
+        path: '/products',
+        main: ({match}) => <Products match={match}/>,
         exact: false
     },
     {
         path: '',
-        component: () => <NotFound />,
+        main: () => <NotFound />,
         exact: false
     }
 ]
