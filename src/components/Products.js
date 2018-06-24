@@ -1,30 +1,34 @@
 import React, { Component } from 'react';
-import { NavLink } from "react-router-dom";
+import { NavLink, Route } from "react-router-dom";
+import Product from "./Product";
 
 class Products extends Component {
     render() {
-        let {match} = this.props;
-        console.log(match);
+        let { match } = this.props;
         let products = [
             {
                 id: 1,
                 name: 'Apple Iphone X',
+                slug: 'apple-iphone-x',
                 price: 22000000
             },
             {
                 id: 2,
                 name: 'Samsung Galaxy s9',
+                slug: 'samsung-galaxy-s9',
                 price: 19000000
             },
             {
                 id: 3,
                 name: 'Sony Xpedia Z10',
+                slug: 'sony-xpedia-z10',
                 price: 30000000
             }
         ];
+        let url = match.url;
         let productsEle = products.map((product, index) => {
             return (
-                <NavLink key={index} to=''>
+                <NavLink key={index} to={`${url}/${product.slug}`}>
                     <li className="list-group-item">{product.id + '-' + product.name + '-' + product.price}</li>
                 </NavLink>
             )
@@ -40,6 +44,11 @@ class Products extends Component {
                     </ul>
 
                 </div>
+
+                <div className="row">
+                    <Route path={`${url}/:slug`} component={({ match }) => <Product match={match} />} />
+                </div>
+
 
             </div>
 
