@@ -24,12 +24,12 @@ const routes = [
     },
     {
         path: '/products',
-        main: ({match}) => <Products match={match}/>,
+        main: ({ match, location }) => <Products match={match} location={location} />,
         exact: false
     },
     {
         path: '/login',
-        main: () => <Login />,
+        main: ({ location }) => <Login location={location} />,
         exact: false
     },
     {

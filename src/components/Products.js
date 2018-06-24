@@ -4,7 +4,8 @@ import Product from "./Product";
 
 class Products extends Component {
     render() {
-        let { match } = this.props;
+        let { match, location } = this.props;
+        console.log(location);
         let products = [
             {
                 id: 1,
